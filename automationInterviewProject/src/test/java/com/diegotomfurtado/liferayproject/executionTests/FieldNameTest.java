@@ -1,20 +1,16 @@
 package com.diegotomfurtado.liferayproject.executionTests;
 
 import static org.junit.Assert.assertTrue;
-import static org.openqa.selenium.By.xpath;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import com.diegotomfurtado.liferayproject.pages.LiferayFormsPage;
 import com.diegotomfurtado.liferayproject.utils.SetUpBrowser;
 
 public class FieldNameTest {
-
-	public final By nameFieldErroMessageLocator = xpath("//label[text() = 'Qual é seu nome? ']/following-sibling::div[2]");
 
 	private WebDriver browser;
 
@@ -36,16 +32,14 @@ public class FieldNameTest {
 	public void shouldDisplayMessageErrorWhenNameAreaIsEmpty()
 			throws InterruptedException {
 
-		new LiferayFormsPage(browser).fillANameOnField("           ")
+		new LiferayFormsPage(browser)
+				.fillANameOnField("           ")
 				.chooseDateFromCalendarIcon()
 				.fillBodyOnTextArea("Static Test for field name validation.")
 				.clickButtonToSubmitOnForm();
 
-		String returnOfField = browser.findElement(nameFieldErroMessageLocator)
-				.getText();
-
-		assertTrue("This field is required.".contains(returnOfField));
-		System.out.println(returnOfField);
+		assertTrue("This field is required.".contains(new LiferayFormsPage(browser).returnMessageErroFromNameArea()));
+		System.out.println(new LiferayFormsPage(browser).returnMessageErroFromNameArea());
 	}
 
 	/*
@@ -56,7 +50,8 @@ public class FieldNameTest {
 	public void shouldValidateAlphabetInputInNameArea()
 			throws InterruptedException {
 
-		new LiferayFormsPage(browser).fillANameOnField("Diego Furtado")
+		new LiferayFormsPage(browser)
+				.fillANameOnField("Diego Furtado")
 				.chooseDateFromCalendarIcon()
 				.fillBodyOnTextArea("Static Test for field name validation.")
 				.clickButtonToSubmitOnForm()
@@ -67,7 +62,8 @@ public class FieldNameTest {
 	public void shouldValidateNumbersInput()
 			throws InterruptedException {
 
-		new LiferayFormsPage(browser).fillANameOnField("1234567890")
+		new LiferayFormsPage(browser)
+				.fillANameOnField("1234567890")
 				.chooseDateFromCalendarIcon()
 				.fillBodyOnTextArea("Static Test for field name validation.")
 				.clickButtonToSubmitOnForm()
@@ -78,7 +74,8 @@ public class FieldNameTest {
 	public void shouldValidateAlphanumericInput()
 			throws InterruptedException {
 
-		new LiferayFormsPage(browser).fillANameOnField("ABC1234567890CBA")
+		new LiferayFormsPage(browser)
+				.fillANameOnField("ABC1234567890CBA")
 				.chooseDateFromCalendarIcon()
 				.fillBodyOnTextArea("Static Test for field name validation.")
 				.clickButtonToSubmitOnForm()
@@ -89,7 +86,8 @@ public class FieldNameTest {
 	public void shouldValidateSpecialCharactersInput()
 			throws InterruptedException {
 
-		new LiferayFormsPage(browser).fillANameOnField("!@#$%¨%$#$%¨&")
+		new LiferayFormsPage(browser)
+				.fillANameOnField("!@#$%¨%$#$%¨&")
 				.chooseDateFromCalendarIcon()
 				.fillBodyOnTextArea("Static Test for field name validation.")
 				.clickButtonToSubmitOnForm()

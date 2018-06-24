@@ -9,10 +9,8 @@ import java.util.Date;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 
 public class LiferayFormsPage extends BasePages {
 
@@ -22,11 +20,34 @@ public class LiferayFormsPage extends BasePages {
 	private final By idCalendarLocator = xpath("//label[text() = 'Qual é a data do seu nascimento? ']/following-sibling::div/input");
 	private final By idButtonSubmitLocator = xpath("//button[@class='btn btn-primary lfr-ddm-form-submit pull-right']");
 	private final By idButtonCalendarLocator = xpath("//span[@class=\"icon-calendar\"]");
-	public final By nameFieldErroMessageLocator = xpath("//label[text() = 'Qual é seu nome? ']/following-sibling::div[2]");
+	private final By boxMessageErroMessageLocator = xpath("//label[text() = 'Porque você ingressou na área de testes? ']/following-sibling::div[2]");
+	private final By calendarLocator = xpath("//label[text() = 'Qual é a data do seu nascimento? ']/following-sibling::div[2]");
+	private final By nameFieldErroMessageLocator = xpath("//label[text() = 'Qual é seu nome? ']/following-sibling::div[2]");
+	private final By erroMessageWithNoNetwork = xpath("//div[@class='container-fluid-1280 ddm-form-builder-app']/div[1]/div");
 
 	public LiferayFormsPage(WebDriver browser) {
 		super(browser);
 		// TODO Auto-generated constructor stub
+	}
+
+	public String returnErroMessageWithoutNetwork() {
+		return browser.findElement(erroMessageWithNoNetwork).getText();
+	}
+
+	public void inputFakeDateToTestMethodStatic(String calendar) {
+		browser.findElement(idCalendarLocator).sendKeys(calendar);
+	}
+
+	public String returnMessageErroFromNameArea() {
+		return browser.findElement(nameFieldErroMessageLocator).getText();
+	}
+
+	public String returnTextErroMessage() {
+		return browser.findElement(boxMessageErroMessageLocator).getText();
+	}
+
+	public String returnMessageErroFromDateArea() {
+		return browser.findElement(calendarLocator).getText();
 	}
 
 	public String isPartyRockLabelVisible() {
@@ -69,7 +90,7 @@ public class LiferayFormsPage extends BasePages {
 			throws InterruptedException {
 
 		Thread.sleep(5000);
-		browser.findElement(idButtonSubmitLocator).sendKeys(Keys.ENTER);
+		browser.findElement(idButtonSubmitLocator).click();
 		return new LiferayConfirmationPage(browser);
 	}
 
