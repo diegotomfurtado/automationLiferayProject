@@ -8,7 +8,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 import com.diegotomfurtado.liferayproject.pages.LiferayFormsPage;
-import com.diegotomfurtado.liferayproject.utils.SetUpBrowser;
+import com.diegotomfurtado.liferayproject.utils.Setup;
 
 public class FieldNameTest {
 
@@ -16,7 +16,7 @@ public class FieldNameTest {
 
 	@Before
 	public void setUpOpenBrowser() throws Exception{
-		browser = SetUpBrowser.setUpBrowser();
+		browser = Setup.setUpBrowser();
 	}
 
 	@After

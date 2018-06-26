@@ -9,7 +9,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 import com.diegotomfurtado.liferayproject.pages.LiferayFormsPage;
-import com.diegotomfurtado.liferayproject.utils.SetUpBrowser;
+import com.diegotomfurtado.liferayproject.utils.Setup;
 
 public class FieldDateTest {
 
@@ -17,7 +17,7 @@ public class FieldDateTest {
 
 	@Before
 	public void setUpOpenBrowser() throws Exception{
-		browser = SetUpBrowser.setUpBrowser();
+		browser = Setup.setUpBrowser();
 	}
 
 	@After

@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.diegotomfurtado.liferayproject.pages.LiferayFormsPage;
-import com.diegotomfurtado.liferayproject.utils.SetUpBrowser;
+import com.diegotomfurtado.liferayproject.utils.Setup;
 
 @RunWith(DataDrivenTestRunner.class)
 @DataLoader(filePaths = "InputInformation.csv")
@@ -26,7 +26,7 @@ public class CreateNewFormTest {
 
 	@Before
 	public void setUpOpenBrowser() {
-		browser = SetUpBrowser.setUpBrowser();
+		browser = Setup.setUpBrowser();
 	}
 
 	@After

@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.diegotomfurtado.liferayproject.pages.LiferayFormsPage;
-import com.diegotomfurtado.liferayproject.utils.SetUpBrowser;
+import com.diegotomfurtado.liferayproject.utils.Setup;
 
 @RunWith(DataDrivenTestRunner.class)
 @DataLoader(filePaths = "InputInformation.csv")
@@ -23,7 +23,7 @@ public class FieldBoxMessageTest {
 
 	@Before
 	public void setUpOpenBrowser() throws Exception{
-		browser = SetUpBrowser.setUpBrowser();
+		browser = Setup.setUpBrowser();
 	}
 
 	@After
