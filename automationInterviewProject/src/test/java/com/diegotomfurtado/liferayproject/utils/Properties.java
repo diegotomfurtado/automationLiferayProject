@@ -6,8 +6,6 @@ public class Properties {
 	static final String CHROME_PATH = "C:\\Drivers\\DrivesAutomations\\chromedriver.exe";
 	static final String FIREFOX_PATH = "C:\\Drivers\\DrivesAutomations\\";
 
-	public static boolean CLOSE_BROWSER;
-
 	/*
 	 * Here you can change the browser for your tests.
 	 * */

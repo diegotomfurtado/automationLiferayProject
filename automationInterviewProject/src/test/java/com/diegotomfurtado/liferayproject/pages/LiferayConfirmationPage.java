@@ -12,9 +12,12 @@ public class LiferayConfirmationPage extends BasePages {
 		// TODO Auto-generated constructor stub
 	}
 
-	private static final By returnSuccessMessageHeaderLocator = xpath("//following-sibling::div/div/div/div/div/div/div/div/div/div/div/h1");
+	private static final By returnSuccessMessageHeaderLocator = xpath(".//*[@class=\"ddm-form-name\"]");
 
-	public String returnSuccessMessageHeaderLocator() {
+	public String returnSuccessMessageHeaderLocator()
+			throws InterruptedException {
+
+		Thread.sleep(5000);
 		String returnFeedback = browser.findElement(
 				returnSuccessMessageHeaderLocator).getText();
 

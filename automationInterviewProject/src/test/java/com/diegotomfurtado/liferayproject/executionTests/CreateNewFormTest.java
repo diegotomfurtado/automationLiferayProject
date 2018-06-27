@@ -8,7 +8,6 @@ import static org.junit.Assert.assertTrue;
 import org.easetech.easytest.annotation.DataLoader;
 import org.easetech.easytest.annotation.Param;
 import org.easetech.easytest.runner.DataDrivenTestRunner;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,15 +22,17 @@ import com.diegotomfurtado.liferayproject.utils.Setup;
 public class CreateNewFormTest {
 
 	private WebDriver browser;
+	
 
 	@Before
 	public void setUpOpenBrowser() {
 		browser = Setup.setUpBrowser();
 	}
-
-	@After
+	
+//	@After
 	public void teardown() {
 		browser.close();
+		browser.quit();
 	}
 
 	/*
