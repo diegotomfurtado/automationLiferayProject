@@ -2,7 +2,6 @@ package com.diegotomfurtado.liferayproject.pages;
 
 import static org.openqa.selenium.By.xpath;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

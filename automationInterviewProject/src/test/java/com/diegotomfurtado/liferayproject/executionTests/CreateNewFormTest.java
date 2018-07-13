@@ -50,20 +50,15 @@ public class CreateNewFormTest {
 		
 		new LiferayFormsPage(browser).clickButtonToSubmitOnForm();
 		
-		FieldNameTest chekingNameArea = new FieldNameTest();
-		String returnMessageErroFromNameArea = browser.findElement(chekingNameArea.nameFieldErroMessageLocator).getText();
-		assertTrue("This field is required.".contains(returnMessageErroFromNameArea));
-		System.out.println(returnMessageErroFromNameArea);
+		assertTrue("This field is required.".contains(new LiferayFormsPage(browser).returnMessageErroFromNameArea()));
+		System.out.println(new LiferayFormsPage(browser).returnMessageErroFromNameArea());
 		
-		FieldDateTest chekingDateArea = new FieldDateTest();
-		String returnMessageErroFromDateArea = browser.findElement(chekingDateArea.calendarLocator).getText();
-		assertTrue("This field is required.".contains(returnMessageErroFromDateArea));
-		System.out.println(returnMessageErroFromDateArea);
 		
-		FieldBoxMessageTest chekingBoxArea = new FieldBoxMessageTest();
-		String returnMessageErroFromBoxArea = browser.findElement(chekingBoxArea.boxMessageErroMessageLocator).getText();
-		assertTrue("This field is required.".contains(returnMessageErroFromBoxArea));
-		System.out.println(returnMessageErroFromBoxArea);
+		assertTrue("This field is required.".contains(new LiferayFormsPage(browser).returnMessageErroFromDateArea()));
+		System.out.println(new LiferayFormsPage(browser).returnMessageErroFromDateArea());
+		
+		assertTrue("This field is required.".contains(new LiferayFormsPage(browser).returnTextErroMessage()));
+		System.out.println(new LiferayFormsPage(browser).returnTextErroMessage());
 		
 	}
 	
@@ -73,8 +68,10 @@ public class CreateNewFormTest {
 			throws InterruptedException {
 
 		String returnFeedback = new LiferayFormsPage(browser)
-				.fillANameOnField(name).chooseDateFromCalendarIcon()
-				.fillBodyOnTextArea(textArea).clickButtonToSubmitOnForm()
+				.fillANameOnField(name)
+				.chooseDateFromCalendarIcon()
+				.fillBodyOnTextArea(textArea)
+				.clickButtonToSubmitOnForm()
 				.returnSuccessMessageHeaderLocator();
 
 		assertEquals("Informações enviadas", returnFeedback);

@@ -3,6 +3,9 @@ package com.diegotomfurtado.liferayproject.executionTests;
 import static org.junit.Assert.assertEquals;
 import static org.openqa.selenium.By.xpath;
 
+import java.util.concurrent.BrokenBarrierException;
+
+import org.apache.poi.hssf.usermodel.examples.NewLinesInCells;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -14,9 +17,6 @@ import com.diegotomfurtado.liferayproject.pages.LiferayFormsPage;
 import com.diegotomfurtado.liferayproject.utils.SetUpBrowser;
 
 public class FieldDateTest {
-	private final By idCalendarLocator = xpath("//label[text() = 'Qual é a data do seu nascimento? ']/following-sibling::div/input");
-	public final By calendarLocator = xpath("//label[text() = 'Qual é a data do seu nascimento? ']/following-sibling::div[2]");
-	private final By erroMessageWithNoNetwork = xpath("//div[@class='container-fluid-1280 ddm-form-builder-app']/div[1]/div");
 
 	private WebDriver browser;
 
@@ -44,10 +44,8 @@ public class FieldDateTest {
 				.fillBodyOnTextArea("Static Test for field DATE validation.")
 				.clickButtonToSubmitOnForm();
 
-		String returnOfField = browser.findElement(calendarLocator).getText();
-
-		assertEquals("This field is required.", returnOfField);
-		System.out.println(returnOfField);
+		assertEquals("This field is required.", new LiferayFormsPage(browser).returnMessageErroFromDateArea());
+		System.out.println(new LiferayFormsPage(browser).returnMessageErroFromDateArea());
 	}
 
 	/*
@@ -63,8 +61,7 @@ public class FieldDateTest {
 				.fillBodyOnTextArea("Static Test for field DATE validation.")
 				.clickButtonToSubmitOnForm();
 
-		String returnOfField = browser.findElement(calendarLocator).getText();
-		assertEquals("This field is required.", returnOfField);
+		assertEquals("This field is required.", new LiferayFormsPage(browser).returnMessageErroFromDateArea());
 		
 		System.out.println("Should have another type of message, like: Invalid Date");
 	}
@@ -89,9 +86,7 @@ public class FieldDateTest {
 		.fillBodyOnTextArea("Static Test for field DATE validation.")
 		.clickButtonToSubmitOnForm();
 		
-		String returnOfField = browser.findElement(calendarLocator).getText();
-		
-		assertEquals("This field is required.", returnOfField);
+		assertEquals("This field is required.", new LiferayFormsPage(browser).returnMessageErroFromDateArea());
 	}
 	
 	/*
@@ -127,10 +122,8 @@ public class FieldDateTest {
 				.fillBodyOnTextArea("Static Test for field DATE validation.")
 				.clickButtonToSubmitOnForm();
 
-		String returnErroMessage = browser.findElement(erroMessageWithNoNetwork).getText();
-
 		Assert.assertEquals("There was an error when trying to validate your form.",
-				returnErroMessage);
+				new LiferayFormsPage(browser).returnErroMessageWithoutNetwork());
 	}
 	
 	@Test
@@ -140,7 +133,7 @@ public class FieldDateTest {
 	}
 
 	public void findCalendar(String calendar) {
-		browser.findElement(idCalendarLocator).sendKeys(calendar);
+		new LiferayFormsPage(browser).inputFakeDateToTestMethodStatic(calendar);
 	}
 	
 }
