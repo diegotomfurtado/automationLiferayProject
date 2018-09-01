@@ -1,0 +1,37 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+import org.apache.tools.ant.taskdefs.condition.Os
+
+group = 'com.diegotomfurtado.liferayInterviewChallenge'
+version = '1.0.0-SNAPSHOT'
+
+description = """Samples Functional Test Based In My Personal Liferay's Project"""
+
+repositories {
+    jcenter()
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+
+	testCompile group: 'io.takari.junit', name: 'takari-cpsuite', version: '1.2.7'
+
+		// https://mvnrepository.com/artifact/org.easetech/easytest-core
+	compile group: 'org.easetech', name: 'easytest-core', version: '1.4.0'
+    
+	// Use JUnit test framework
+    testImplementation 'junit:junit:4.12'
+    
+    // https://mvnrepository.com/artifact/junit/junit
+	testCompile group: 'junit', name: 'junit', version: '4.12'
+	
+	// https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+	compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.14.0'
+	
+	// https://mvnrepository.com/artifact/commons-io/commons-io
+	compile group: 'commons-io', name: 'commons-io', version: '2.6'
+	
+}
+
