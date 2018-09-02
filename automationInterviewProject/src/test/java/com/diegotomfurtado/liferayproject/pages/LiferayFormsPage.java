@@ -16,16 +16,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LiferayFormsPage extends BasePages {
 
-	private final By labelLetsPartyRockLocator = xpath("//following-sibling::div/div/div/div/div/div/h4");
-	private final By idNameFieldLocator = xpath("//label[text() = 'Qual é seu nome? ']/following-sibling::div/div/input");
-	private final By idTextAreaLocator = xpath("//label[text() = 'Porque você ingressou na área de testes? ']/following-sibling::div/textarea");
-	private final By idCalendarLocator = xpath("//label[text() = 'Qual é a data do seu nascimento? ']/following-sibling::div/input");
-	private final By idButtonSubmitLocator = xpath("//button[@class='btn btn-primary lfr-ddm-form-submit pull-right']");
-	private final By idButtonCalendarLocator = xpath("//span[@class=\"icon-calendar\"]");
-	private final By boxMessageErroMessageLocator = xpath("//label[text() = 'Porque você ingressou na área de testes? ']/following-sibling::div[2]");
-	private final By calendarLocator = xpath("//label[text() = 'Qual é a data do seu nascimento? ']/following-sibling::div[2]");
-	private final By nameFieldErroMessageLocator = xpath("//label[text() = 'Qual é seu nome? ']/following-sibling::div[2]");
-	private final By erroMessageWithNoNetwork = xpath("//div[@class='container-fluid-1280 ddm-form-builder-app']/div[1]/div");
+	private static final By labelLetsPartyRockLocator = xpath(".//*[contains(@class,\"lfr-ddm-form-page-description\")]");
+	private static final By idNameFieldLocator = xpath("//*[contains(@id,\"_com_liferay_dynamic_data_mapping_form_web_portlet_DDMFormPortlet_ddm$$QualÉSeuNome\")]");
+	private static final By idTextAreaLocator = xpath(".//*[contains(@id,\"_com_liferay_dynamic_data_mapping_form_web_portlet_DDMFormPortlet_ddm$$PorqueVocêIngressouNaÁreaDeTestes\")]");
+	private static final By idCalendarLocator = xpath(".//*[contains(@class,\"input-group input-group-container\")]/input");
+	private static final By idButtonSubmitLocator = xpath("//button[@class='btn btn-primary lfr-ddm-form-submit pull-right']");
+	private static final By idButtonCalendarLocator = xpath("//span[@class=\"icon-calendar\"]");
+	private static final By boxMessageErroMessageLocator = xpath(".//*[contains(@class,\"col-md-8\")]/div/div/div[2]");
+	private static final By calendarLocator = xpath(".//*[contains(@class,\"col-md-4\")]/div/div/div[2]");
+	private static final By nameFieldErroMessageLocator = xpath(".//*[contains(@class,\"col-md-12\")]/div/div/div[2]");
+	private static final By erroMessageWithNoNetwork = xpath(".//*[contains(@class,\"container-fluid-1280 ddm-form-builder-app\"]/div[1]/div");
 
 	public LiferayFormsPage(WebDriver browser) {
 		super(browser);
