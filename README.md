@@ -1,4 +1,4 @@
-# automationLiferayProject
+# lfr-ChallengeInterview
 
 ## O que fazer:
 Fazer testes automatizados:
