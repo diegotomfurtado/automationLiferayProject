@@ -1,16 +1,11 @@
 # automationLiferayProject
 
-## Instruções:
-
-O que enviar:
-O código fonte (projeto do eclipse IDE, caso seja a ferramenta que use) para que o código seja avaliado, enviar por uma das formas abaixo:
-- Dar acesso ao usuário "manoelcyreno" ao projeto caso ele esteja no GitHub ou BitBucket. 
-
 ## O que fazer:
 Fazer testes automatizados:
 - Utilizando conceitos de PageObject;
 - Ferramenta Selenium WebDriver;
-- Utilização de BDD, via o framework do cucumber (opcional).
+- Utilização de BDD, via o framework do cucumber.
+- Utilizar projeto com Maven e Gradle.
 - Documento com os Casos de testes ou Cenários de testes dos requisitos.
 
 ## Requisito:
